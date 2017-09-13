@@ -30,6 +30,8 @@ app.use(webpackDevMiddleware(compiler, {
   hot: true
 }));
 
+app.use(require("webpack-hot-middleware")(compiler));
+
 //Sets the file path directory to load up scripts and styles from the HTML file.
 app.use(express.static(filePath));
 

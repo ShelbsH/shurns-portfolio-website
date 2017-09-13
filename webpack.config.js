@@ -3,11 +3,12 @@ const path = require('path');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: {
-    app: './index.js'
-  },
+  entry: [
+    './index.js',
+    'webpack-hot-middleware/client'
+  ],
   output: {
-    filename: '[name].bundle.js',
+    filename: 'app.bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
@@ -24,7 +25,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['react-hot-loader', 'babel-loader']
       }
     ]
   },
