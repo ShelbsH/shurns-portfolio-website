@@ -1,15 +1,20 @@
 import React from 'react';
 import '../styles/components/App.scss';
+import Header from './Routes/Header';
+import Main from './Routes/Main';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
       <div>
-        <h1 className="header">React Boilerplate</h1>
+        <Header />
+        <Main />
       </div>
     );
   }
 };
+
+export default App;
