@@ -13,8 +13,9 @@ const path = require('path');
 const PORT = 8000;
 
 //=============================================
-// Set the identifier to set the file path directory
+// Set the identifier to set different directories
 const filePath = path.resolve(__dirname, 'dist/');
+const imagePath = path.resolve(__dirname, 'images/');
 
 //=============================================
 // Standard tools to be used for the webpack
@@ -35,9 +36,18 @@ app.use(require("webpack-hot-middleware")(compiler));
 //Sets the file path directory to load up scripts and styles from the HTML file.
 app.use(express.static(filePath));
 
+//Sets the image path directory.
+app.use(express.static(imagePath));
+
 //Send the HTML file on root index GET request
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/index.html'));
+});
+
+//Send image files based on GET request.
+app.get(/^\/.*\.(png|jpg)$/, (req, res) => {
+  const imgFile = req.url.slice(req.url.lastIndexOf('/') + 1);
+  res.sendFile(path.join(__dirname, `images/${imgFile}`));
 });
 
 //Run the application on PORT, 8000.
