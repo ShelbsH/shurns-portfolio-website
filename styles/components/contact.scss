@@ -1,0 +1,22 @@
+@import '/../variables.scss';
+
+.textArea-size {
+  height: 9.375rem;
+}
+
+.text-color {
+  color: $project-bg-color;
+}
+
+.form-label {
+  color: $project-bg-color;
+  font-weight: bold;
+}
+
+.form-btn-portfolio {
+  background-color: #5382B1;
+  color: white;
+}
+input.input-text, textarea.input-text {
+  border: 1px solid $project-bg-color;
+}
