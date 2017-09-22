@@ -20,3 +20,15 @@
 input.input-text, textarea.input-text {
   border: 1px solid $project-bg-color;
 }
+
+input.input-error {
+  border-color: red;
+}
+
+textarea.textArea-error {
+  border-color: red;
+}
+
+.label-error {
+  color: red;
+}

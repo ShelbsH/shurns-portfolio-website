@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-beta",
+    "classnames": "^2.2.5",
     "express": "^4.15.4",
     "font-awesome": "^4.7.0",
     "nodemon": "^1.12.0",
