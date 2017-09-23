@@ -32,10 +32,7 @@ class Form extends React.Component {
     let isError = false;
     const nameRegex = /^[a-z]+$/i;
     const emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-    const firstName = this.state.firstName;
-    const lastName = this.state.lastName;
-    const email = this.state.email;
-    const description = this.state.description;
+    const { firstName, lastName, email, description } = this.state;
 
     const errors = {
       isFirstNameError: false,
@@ -79,10 +76,8 @@ class Form extends React.Component {
     const labelClass = 'col-form-label form-label';
     const inputClass = 'form-control form-control-lg input-text';
     const textAreaClass = 'form-control form-control-lg textArea-size input-text';
-    const isFirstNameError = this.state.isFirstNameError;
-    const isLastNameError = this.state.isLastNameError;
-    const isEmailError = this.state.isEmailError;
-    const isDescriptionError = this.state.isDescriptionError;
+    
+    const { isFirstNameError, isLastNameError, isEmailError, isDescriptionError } = this.state;
 
     const formClass = (defaultClass, errorClassName, isErrorState) => {
       return classNames({
