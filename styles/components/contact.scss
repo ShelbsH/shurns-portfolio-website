@@ -19,14 +19,17 @@
 }
 input.input-text, textarea.input-text {
   border: 1px solid $project-bg-color;
+  &:focus {
+    transition: none;
+    border-color: $project-bg-color;
+  }
 }
 
-input.input-error {
+input.input-error, textarea.textArea-error {
   border-color: red;
-}
-
-textarea.textArea-error {
-  border-color: red;
+  &:focus {
+    border-color: red;
+  }
 }
 
 .label-error {
