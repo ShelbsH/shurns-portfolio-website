@@ -10,7 +10,7 @@ class Main extends React.Component {
     return (
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/Projects' component={Projects}/>
+        <Route path='/Projects' render={() => <Projects data={this.props.data}/>}/>
         <Route path='/Contact' component={Contact}/>
       </Switch>
     );
