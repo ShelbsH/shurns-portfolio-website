@@ -87,7 +87,7 @@ class Form extends React.Component {
     }
 
     return (
-      <form className="mt-5" onSubmit={this.onSubmitHandler}>
+      <form className="mt-3" onSubmit={this.onSubmitHandler}>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label
