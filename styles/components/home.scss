@@ -7,6 +7,14 @@
   padding: 10%;
 }
 
+.button-font-color {
+  color: #fff;
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
 .btn-portfolio {
   background-color: $portfolio-yellow;
   width: 16.19rem;

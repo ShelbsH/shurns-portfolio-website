@@ -1,10 +1,18 @@
+@import '/../variables.scss';
+
 .header-bg-color {
   background-color: #2e3157;
-  opacity: 0.9;
-  height: 60px;
-  color: #fff
+  padding-top: 0.375rem;  /*increase the navbar height*/
+  padding-bottom: 0.375rem;
 }
 
-.nav-font-color {
+.nav-brand-color {
   color: #fff;
+}
+
+.link-color {
+  color: #fff;
+  &:hover {
+    color: $portfolio-yellow;
+  }
 }

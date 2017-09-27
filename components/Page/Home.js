@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ProjectScreenshot, ProjectName, ProjectDescription, TechTags } from '../utils';
 import '../../styles/components/home.scss';
 
 class Home extends React.Component {
   render() {
+
+    const data = this.props.data[0];
+
     return (
-      
       <div className="container-fluid">
         <section>
           <div className="row text-center text-light banner-img">
@@ -15,7 +18,7 @@ class Home extends React.Component {
                 and great things on projects with the latest technologies.
               </p>
               <button className="btn btn-portfolio m-5">
-                <Link to='/Projects'>See My Projects</Link>
+                <Link className="button-font-color" to='/Projects'>See My Projects</Link>
               </button>
             </div>
           </div>
@@ -59,22 +62,13 @@ class Home extends React.Component {
           </div>
           <div className="row text-light project-bg-color py-5">
             <div className="col-md-6">
-              <p>Background image goes here</p>
+              <ProjectScreenshot screenshot={data.screenshot} />
             </div>
             <div className="col-md-6">
-              <h2>Project Name</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <ProjectName name={data.project} />
+              <ProjectDescription description={data.description} />
               <b/>
-              <i className="fa fa-circle icon-fonts-circle mr-2" aria-hidden="true"></i>
-              <span className="badge badge-dark mr-2">ReactJS</span>
-              <span className="badge badge-dark mr-2">ExpressJS</span>
-              <span className="badge badge-dark mr-2">Bootstrap 4</span>
-              <span className="badge badge-dark mr-2">React-Router</span>
+              <TechTags tags={data.tags} />
             </div>
           </div>
         </section>
@@ -85,7 +79,7 @@ class Home extends React.Component {
               <h2 className="m-3">Interested to work together?</h2>
               <p className="lead">I'm currently available. Don't hesitate to shoot me a contact!</p>
               <button className="btn btn-portfolio m-5">
-                <Link to='/Contact'>Contact Me</Link>
+                <Link className="button-font-color" to='/Contact'>Contact Me</Link>
               </button>
             </div>
           </div>
