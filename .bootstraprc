@@ -56,52 +56,52 @@ styles:
 
   # Core CSS
   buttons: true
-  code: true
+  code: false
   forms: true
   grid: true
   images: true
   reboot: true
-  tables: true
+  tables: false
   type: true
 
   # Components
-  alert: true
+  alert: false
   badge: true
-  breadcrumb: true
-  button-group: true
-  card: true
-  close: true
+  breadcrumb: false
+  button-group: false
+  card: false
+  close: false
   custom-forms: true
-  dropdown: true
+  dropdown: false
   input-group: true
-  jumbotron: true
-  list-group: true
-  media: true
+  jumbotron: false
+  list-group: false
+  media: false
   nav: true
   navbar: true
-  pagination: true
-  progress: true
+  pagination: false
+  progress: false
   transitions: true
 
   # Components w/ JavaScript
-  carousel: true
-  modal: true
-  popover: true
-  tooltip: true
+  carousel: false
+  modal: false
+  popover: false
+  tooltip: false
 
   # Utility classes
   utilities: true
 
 ### Bootstrap scripts
 scripts:
-  alert: true
-  button: true
-  carousel: true
+  alert: false
+  button: false
+  carousel: false
   collapse: true
-  dropdown: true
-  modal: true
-  popover: true
-  scrollspy: true
-  tab: true
-  tooltip: true
-  util: true
+  dropdown: false
+  modal: false
+  popover: false
+  scrollspy: false
+  tab: false
+  tooltip: false
+  util: false
