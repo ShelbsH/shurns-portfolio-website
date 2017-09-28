@@ -28,7 +28,8 @@ module.exports = {
         exclude: /node_modules/,
         use: ['react-hot-loader', 'babel-loader']
       },
-      { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, 
+      { 
+        test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, 
         loader: 'imports-loader?jQuery=jquery'
       }
     ]
