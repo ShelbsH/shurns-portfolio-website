@@ -17,9 +17,9 @@ class Home extends React.Component {
               <p className="lead">I specialize in Front-End development and love building new
                 and great things on projects with the latest technologies.
               </p>
-              <button className="btn btn-portfolio m-5">
-                <Link className="button-font-color" to='/Projects'>See My Projects</Link>
-              </button>
+              <Link to='/Projects'>
+                <button className="btn btn-portfolio text-light mt-5">See My Projects</button>
+              </Link>
             </div>
           </div>
         </section>
@@ -78,9 +78,9 @@ class Home extends React.Component {
             <div className="col-12">
               <h2 className="m-3">Interested to work together?</h2>
               <p className="lead">I'm currently available. Don't hesitate to shoot me a contact!</p>
-              <button className="btn btn-portfolio m-5">
-                <Link className="button-font-color" to='/Contact'>Contact Me</Link>
-              </button>
+              <Link to='/Contact'>
+                <button className="btn btn-portfolio text-light mt-5">Contact Me</button>
+              </Link>
             </div>
           </div>
         </section>
