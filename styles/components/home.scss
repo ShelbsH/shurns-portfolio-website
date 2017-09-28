@@ -1,5 +1,14 @@
 @import '/../variables.scss';
 
+@media screen and (max-width: 767px) {
+  .project-container {
+    text-align: center;
+  }
+  .project-container-header {
+    margin-top: 1.5rem;
+  }
+}
+
 .banner-img {
   background: url("/../images/banner_background_03.jpg") no-repeat;
   background-size: cover;

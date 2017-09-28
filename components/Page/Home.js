@@ -60,12 +60,12 @@ class Home extends React.Component {
               <h2 className="text-center text-light">My Recent Project</h2>
             </div>
           </div>
-          <div className="row text-light project-bg-color py-5">
+          <div className="row text-light project-bg-color project-container py-5">
             <div className="col-md-6">
               <ProjectScreenshot screenshot={data.screenshot} />
             </div>
             <div className="col-md-6">
-              <ProjectName name={data.project} />
+              <ProjectName className="project-container-header" name={data.project} />
               <ProjectDescription description={data.description} />
               <b/>
               <TechTags tags={data.tags} />

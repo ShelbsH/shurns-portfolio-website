@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProjectScreenshot, ProjectName, ProjectDescription, TechTags } from '../utils';
+import '../../styles/components/project.scss';
 
 class Projects extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class Projects extends React.Component {
                 <ProjectScreenshot screenshot={item.screenshot} />
               </div>
               <div className="col-md-6">
-                <ProjectName name={item.project} className="mt-4" />
+                <ProjectName name={item.project} className="project-container-header" />
                 <ProjectDescription description={item.description} />
                 <TechTags tags={item.tags} />
               </div>

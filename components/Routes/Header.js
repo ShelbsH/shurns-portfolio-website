@@ -5,7 +5,7 @@ import '../../styles/components/header.scss';
 class Header extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg header-bg-color">
+      <nav className="navbar navbar-expand-sm header-bg-color">
         <NavLink className="nav-brand-color" to='/'>Portfolio</NavLink>
         <button
           className="navbar-toggler navbar-dark"
