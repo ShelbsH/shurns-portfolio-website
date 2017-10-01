@@ -15,7 +15,8 @@ class Home extends React.Component {
             <div className="col-12">
               <h1 className="display-3">Front-End Web Developer</h1>
               <p className="lead">I specialize in Front-End development and love building new
-                and great things on projects with the latest technologies.
+                and great things on projects with the latest technologies. I currently reside 
+                in Southern California developing web applications.
               </p>
               <Link to='/Projects'>
                 <button className="btn btn-portfolio text-light mt-5">See My Projects</button>
