@@ -27,8 +27,6 @@ class Form extends React.Component {
   }
 
   onSubmitHandler(e) {
-    e.preventDefault();
-
     let isError = false;
     const nameRegex = /^[a-z]+$/i;
     const emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
@@ -67,7 +65,7 @@ class Form extends React.Component {
     });
 
     if (isError) {
-      return false;
+      e.preventDefault();
     }
   }
 
@@ -87,7 +85,7 @@ class Form extends React.Component {
     }
 
     return (
-      <form className="mt-3" onSubmit={this.onSubmitHandler}>
+      <form className="mt-3" action="send" method="POST" onSubmit={this.onSubmitHandler}>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label
