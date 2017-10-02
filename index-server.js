@@ -6,11 +6,16 @@ const app = express();
 //=============================================
 // Get Router middleware path
 const emailRouter = require('./api/email');
+const projectDataRouter = require('./api/projectData');
 
 //=============================================
 // Dependency tools for express
 const path = require('path');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //=============================================
 // Port number for when the application is running
@@ -52,6 +57,9 @@ app.get('/', (req, res) => {
 
 //Load up the Route middleware upon root index GET request
 app.use('/', emailRouter);
+
+//Load up the Route middleware upon api/ProjectData GET request
+app.use('/api', projectDataRouter);
 
 //Send image files based on GET request.
 app.get(/^\/.*\.(png|jpg)$/, (req, res) => {
