@@ -1,10 +1,6 @@
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
 const mailgunTransport = require('nodemailer-mailgun-transport');
-const bodyParser = require('body-parser');
-
-router.use(bodyParser.urlencoded({extended: false}));
-router.use(bodyParser.json());
 
 router.post('/send', (req, res) => {
   const { firstName, lastName, email, organization, description } = req.body;
