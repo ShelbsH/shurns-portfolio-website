@@ -77,6 +77,16 @@ class Form extends React.Component {
     
     const { isFirstNameError, isLastNameError, isEmailError, isDescriptionError } = this.state;
 
+    const ErrorMessage = ({message, isInputError}) => {
+      if(!isInputError) {
+        return null;
+      }
+
+      return (
+        <div className="invalid-feedback">{message}</div>
+      )
+    }
+
     const formClass = (defaultClass, errorClassName, isErrorState) => {
       return classNames({
         [defaultClass]: true,
@@ -98,6 +108,7 @@ class Form extends React.Component {
               name="firstName"
               value={this.state.firstName}
               onChange={this.onChangeHandler}/>
+            <ErrorMessage message="Enter a valid first name" isInputError={isFirstNameError} />
           </div>
           <div className="form-group col-md-6">
             <label
@@ -110,6 +121,7 @@ class Form extends React.Component {
               name="lastName"
               value={this.state.lastName}
               onChange={this.onChangeHandler}/>
+              <ErrorMessage message="Enter a valid last name" isInputError={isLastNameError} />
           </div>
         </div>
 
@@ -120,10 +132,11 @@ class Form extends React.Component {
           <input
             className={formClass(inputClass, 'input-error', isEmailError)}
             type="text"
-            placeholder="Enter your email here"
+            placeholder="Enter your email"
             name="email"
             value={this.state.email}
             onChange={this.onChangeHandler}/>
+          <ErrorMessage message="Enter a valid email" isInputError={isEmailError} />
         </div>
 
         <div className="form-group">
@@ -144,6 +157,7 @@ class Form extends React.Component {
             name="description"
             value={this.state.description}
             onChange={this.onChangeHandler}></textarea>
+          <ErrorMessage message="Complete the description" isInputError={isFirstNameError} />
         </div>
 
         <button className="btn btn-lg form-btn-portfolio" type="submit">Submit</button>
