@@ -35,3 +35,9 @@ input.input-error, textarea.textArea-error {
 .label-error {
   color: red;
 }
+
+.invalid-feedback {
+  display: inline-block;
+  font-style: italic;
+  color: red;
+}
