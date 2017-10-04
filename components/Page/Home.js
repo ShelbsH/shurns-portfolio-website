@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ProjectScreenshot, ProjectName, ProjectDescription, TechTags } from '../utils';
 import '../../styles/components/home.scss';
@@ -89,6 +90,10 @@ class Home extends React.Component {
       </div>
     )
   }
+}
+
+Home.propTypes = {
+  data: PropTypes.array.isRequired
 }
 
 export default Home;

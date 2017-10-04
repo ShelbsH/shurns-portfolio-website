@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ProjectScreenshot, ProjectName, ProjectDescription, TechTags } from '../utils';
 import '../../styles/components/project.scss';
 
@@ -36,6 +37,10 @@ class Projects extends React.Component {
       </div>
     )
   }
+}
+
+Projects.propTypes = {
+  data: PropTypes.array.isRequired
 }
 
 export default Projects;
