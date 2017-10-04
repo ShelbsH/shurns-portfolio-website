@@ -17,7 +17,7 @@
   background-color: #5382B1;
   color: white;
 }
-input.input-text, textarea.input-text {
+.input-text, .input-text {
   border: 1px solid $project-bg-color;
   &:focus {
     transition: none;
@@ -25,7 +25,7 @@ input.input-text, textarea.input-text {
   }
 }
 
-input.input-error, textarea.textArea-error {
+.input-error, .textArea-error {
   border-color: red;
   &:focus {
     border-color: red;
