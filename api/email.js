@@ -1,14 +1,18 @@
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
 const mailgunTransport = require('nodemailer-mailgun-transport');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 router.post('/send', (req, res) => {
   const { firstName, lastName, email, organization, description } = req.body;
+  const {domain, api_key} = process.env;
 
   const transporter = nodemailer.createTransport(mailgunTransport({
     auth: {
-      domain: 'sandbox46c4ae8bf6944c2786212d738f88cef9.mailgun.org',
-      api_key: 'key-11de6f728b88e6637a31324a6313a038'
+      domain,
+      api_key
     }
   }));
 
@@ -29,8 +33,10 @@ router.post('/send', (req, res) => {
   transporter.sendMail(mailOptions, (err, info) => {
     if(err) {
       console.log(err);
+      res.status(500).send('Internal Server Error');
     }
-    res.status(200).send('Email has successfully sent!');
+    res.status(200).send(JSON.stringify({success: 'Message Successfully Sent!'}));
+    console.log('Message successfully sent');
   });
 });
 
