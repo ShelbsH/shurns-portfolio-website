@@ -10,10 +10,12 @@ class Form extends React.Component {
       lastName: '',
       email: '',
       description: '',
+      organization: '',
       isFirstNameError: false,
       isLastNameError: false,
       isEmailError: false,
-      isDescriptionError: false
+      isDescriptionError: false,
+      messageResponse: ''
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -26,7 +28,28 @@ class Form extends React.Component {
     })
   }
 
-  onSubmitHandler(e) {
+  sendData() {
+    fetch('/send', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        organization: this.state.organization,
+        description: this.state.description
+      })
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      this.setState({messageResponse: res.message})
+    });
+  }
+
+  validation() {
     let isError = false;
     const nameRegex = /^[a-z]+$/i;
     const emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
@@ -36,7 +59,7 @@ class Form extends React.Component {
       isFirstNameError: false,
       isLastNameError: false,
       isEmailError: false,
-      isDescriptionError: false
+      isDescriptionError: false,
     }
 
     if (!nameRegex.test(firstName.trim())) {
@@ -64,28 +87,39 @@ class Form extends React.Component {
       ...errors
     });
 
-    if (isError) {
-      e.preventDefault();
+    return isError;
+  }
+
+  clearForm() {
+    this.setState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      organization: '',
+      description: ''
+    });
+  }
+
+  onSubmitHandler(e) {
+    e.preventDefault();
+
+    const err = this.validation();
+
+    if(!err) {
+      this.clearForm();
+      this.sendData();
     }
   }
 
   render() {
-
     const labelClass = 'col-form-label form-label';
     const inputClass = 'form-control form-control-lg input-text';
     const textAreaClass = 'form-control form-control-lg textArea-size input-text';
     
-    const { isFirstNameError, isLastNameError, isEmailError, isDescriptionError } = this.state;
+    const { isFirstNameError, isLastNameError, isEmailError, isDescriptionError, messageResponse } = this.state;
 
-    const ErrorMessage = ({message, isInputError}) => {
-      if(!isInputError) {
-        return null;
-      }
-
-      return (
-        <div className="invalid-feedback">{message}</div>
-      )
-    }
+    const ErrorMessage = ({message, isInputError}) => (isInputError ? <div className="invalid-feedback">{message}</div> : null);
+    const MessageSent = (messageResponse ? <p className="text-center py-2 success-message">{messageResponse}</p> : null);
 
     const formClass = (defaultClass, errorClassName, isErrorState) => {
       return classNames({
@@ -95,7 +129,8 @@ class Form extends React.Component {
     }
 
     return (
-      <form className="mt-3" action="send" method="POST" onSubmit={this.onSubmitHandler}>
+      <form className="mt-3" onSubmit={this.onSubmitHandler}>
+        {MessageSent}
         <div className="form-row">
           <div className="form-group col-md-6">
             <label
@@ -143,7 +178,10 @@ class Form extends React.Component {
           <label htmlFor="organization" className="col-form-label form-label">Organization (optional)</label>
           <input
             className="form-control form-control-lg input-text"
+            type="text"
             name="organization"
+            value={this.state.organization}
+            onChange={this.onChangeHandler}
             placeholder="Enter the name of your organization"/>
         </div>
 
