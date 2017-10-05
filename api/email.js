@@ -8,6 +8,8 @@ dotenv.config();
 router.post('/send', (req, res) => {
   const { firstName, lastName, email, organization, description } = req.body;
   const {domain, api_key} = process.env;
+  
+  res.setHeader('Content-Type', 'application/json');
 
   const transporter = nodemailer.createTransport(mailgunTransport({
     auth: {
@@ -34,8 +36,8 @@ router.post('/send', (req, res) => {
     if(err) {
       console.log(err);
       res.status(500).send('Internal Server Error');
-    }
-    res.status(200).send(JSON.stringify({success: 'Message Successfully Sent!'}));
+    }    
+    res.status(200).send(JSON.stringify({message: 'message has been sent'}))
     console.log('Message successfully sent');
   });
 });
