@@ -35,6 +35,12 @@ module.exports = {
   plugins: [
     new htmlWebpackPlugin({filename: 'index.html', template: 'views/index-prod.html'}),
     new extractTextPlugin({filename: 'styles.css', allChunks: true}),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
