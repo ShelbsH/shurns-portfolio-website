@@ -8,9 +8,9 @@ import './styles/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  getJSON('api/projectData').then((res) => {
+  getJSON('./api/projectData').then((res) => {
     ReactDOM.render(
-      <HashRouter>
+    <HashRouter>
       <App data={res}/>
     </HashRouter>, document.getElementById('root'));
   });
